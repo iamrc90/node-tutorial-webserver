@@ -9,12 +9,12 @@ app.set('view engine','hbs');
 
 app.use(express.static(__dirname + '/public'));
 
-app.use((req,res,next) => {
-	res.render('maintain.hbs',{
-		message : 'We will be back soon...',
-		title : 'Site under maintainance'
-	});
-});
+// app.use((req,res,next) => {
+// 	res.render('maintain.hbs',{
+// 		message : 'We will be back soon...',
+// 		title : 'Site under maintainance'
+// 	});
+// });
 
 hbs.registerHelper('currentyear' , () => {
 	return new Date().getFullYear();
@@ -28,6 +28,20 @@ app.get('/', (req,res) => {
 	res.render('index.hbs',{
 		message : 'Welcome to Express First page',
 		title : 'Home Page'
+	});
+});
+
+app.get('/about', (req,res) => {
+	res.render('about.hbs',{
+		message : 'About Page',
+		title : 'About Page'
+	});
+});
+
+app.get('/portfolio', (req,res) => {
+	res.render('portfolio.hbs',{
+		message : 'Portfolio Page',
+		title : 'Portfolio Page'
 	});
 });
 
